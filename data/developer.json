@@ -1,145 +1,81 @@
 {
   "personal": {
-    "name": "Muhammad Kamal",
-    "title": "Senior Software Engineer (Backend / Full Stack)",
+    "name": "Fatima Rahman",
+    "title": "Software Quality Assurance Engineer",
     "contact": {
-      "email": "oyekamalkhan@gmail.com",
-      "phone": "03360506129",
-      "linkedin": "https://www.linkedin.com/in/oykamal/",
-      "github": "https://github.com/oykamal",
+      "email": "fatimahrahman001@gmail.com",
+      "phone": "+92 344 932 0536",
       "location": "Islamabad, Pakistan",
-      "website": "kamaldev.me"
+      "linkedin": "https://www.linkedin.com/in/fatimah26/",
+      "github": "https://github.com/fatimahrahman"
     }
   },
   "summary": {
-    "introduction": "Highly skilled software engineer specializing in backend development with Django, Flask, REST APIs, and DevOps. Proven expertise in designing scalable systems and developing full-stack applications with React, Docker, Kafka, and AWS.",
+    "introduction": "QA Engineer with 3 years of experience building quality from the ground up in fast-paced product teams.",
     "body": [
-      "Experienced in developing RESTful APIs and microservices using Django and Flask frameworks.",
-      "Proficient in containerization with Docker and orchestration tools like Kubernetes.",
-      "Skilled in using message queues (RabbitMQ, Kafka) and caching systems (Redis).",
-      "Solid understanding of frontend technologies, including React and modern JavaScript.",
-      "Strong problem-solving skills, with a passion for system design, optimization, and team collaboration."
+      "Known for thinking beyond the checklist, uncovering hidden edge cases, refining requirements with product owners, and embedding quality at every stage of the development cycle.",
+      "Collaborates closely with developers to detect early issues and ensure seamless, high-quality releases.",
+      "Brings a sharp eye for detail and a strong sense of ownership to every launch."
     ]
   },
   "skills": [
-    { "name": "Python", "category": "Languages", "relevance": ["backend", "fullstack"] },
-    { "name": "Django & Django REST Framework", "category": "Backend", "relevance": ["backend", "fullstack"] },
-    { "name": "Flask", "category": "Backend", "relevance": ["backend"] },
-    { "name": "React", "category": "Frontend", "relevance": ["frontend", "fullstack"] },
-    { "name": "Docker", "category": "DevOps", "relevance": ["devops", "backend", "fullstack"] },
-    { "name": "Kafka", "category": "Messaging", "relevance": ["backend", "devops"] },
-    { "name": "RabbitMQ", "category": "Messaging", "relevance": ["backend", "devops"] },
-    { "name": "Redis", "category": "Databases", "relevance": ["backend", "devops"] },
-    { "name": "PostgreSQL", "category": "Databases", "relevance": ["backend", "fullstack"] },
-    { "name": "MySQL", "category": "Databases", "relevance": ["backend"] },
-    { "name": "Elasticsearch", "category": "Databases", "relevance": ["backend", "search"] },
-    { "name": "AWS (EC2, S3)", "category": "Cloud", "relevance": ["backend", "devops"] },
-    { "name": "Git & GitHub", "category": "Version Control", "relevance": ["all"] },
-    { "name": "API Design & Integration", "category": "Architecture", "relevance": ["backend", "fullstack"] },
-    { "name": "CI/CD & Travis CI", "category": "DevOps", "relevance": ["devops"] }
+    { "name": "Manual Testing (Web, Android, iOS)", "category": "Testing", "relevance": ["qa", "mobile", "web"] },
+    { "name": "Automation (Cypress, Playwright)", "category": "Automation", "relevance": ["qa", "automation"] },
+    { "name": "API Testing (Postman)", "category": "Testing", "relevance": ["qa", "backend"] },
+    { "name": "Database Testing (PostgreSQL, MongoDB)", "category": "Database", "relevance": ["qa", "backend"] },
+    { "name": "Scripting (Python, TypeScript)", "category": "Languages", "relevance": ["automation", "backend"] },
+    { "name": "CI/CD & DevOps Collaboration", "category": "Processes", "relevance": ["qa", "devops"] },
+    { "name": "Agile & Scrum Methodologies", "category": "Processes", "relevance": ["qa", "team"] },
+    { "name": "Tools: Jira, AIO Test Management, Tuskr, Firebase, Docker, AWS, Retool, PostHog, Google Analytics, Elastic, Odoo, HubSpot", "category": "Tools", "relevance": ["qa", "automation", "data"] }
   ],
   "experience": [
     {
-      "title": "Senior Software Engineer (Backend)",
-      "company": "Central Asian Cellular Forum",
-      "period": "Dec 2022 - Present",
+      "title": "Software Quality Assurance Engineer",
+      "company": "Taleemabad",
+      "period": "Oct 2022 - Present",
       "location": "Islamabad, Pakistan",
       "description": [
-        "Designed and implemented REST APIs using Python, Flask, and MySQL, successfully deploying to production.",
-        "Refactored and optimized existing services, improving response time by 80% and reducing latency by 90%.",
-        "Implemented unit, integration, and performance tests to enhance overall system reliability."
+        "Performed end-to-end manual testing for web, Android, and iOS apps, covering complex modules such as multi-tenancy, live updates, report cards, lesson plans, and teacher observations.",
+        "Automated key modules like Exam Generator and Class Management using Cypress.",
+        "Conducted API testing, SQL validation, and event tracking using PostHog and Firebase.",
+        "Developed a Python-based CSV cleanup tool integrated with Django Admin to automate data correction.",
+        "Led QA for major releases, including the Balochistan project launch and AWS-to-QCloud migration.",
+        "Collaborated with developers on PR testing, refined SRDs with product managers, and participated in Agile ceremonies.",
+        "Conducted usability testing with teachers and supported large-scale field validations.",
+        "Mentored junior QA engineers and assisted in QA hiring."
       ],
-      "technologies": ["Python", "Flask", "MySQL", "Docker", "AWS"],
-      "relevance": ["backend", "fullstack", "devops"]
+      "technologies": ["Cypress", "Postman", "Python", "Django", "PostgreSQL", "Firebase", "AWS", "Docker", "Jira"],
+      "relevance": ["qa", "automation", "backend", "frontend"]
     },
     {
-      "title": "Software Engineer",
-      "company": "Paymob",
-      "period": "Jun 2022 - Dec 2022",
-      "location": "Remote (Egypt)",
+      "title": "Quality Assurance Intern",
+      "company": "Fusion Systems",
+      "period": "Feb 2022 - Jul 2022",
+      "location": "Remote",
       "description": [
-        "Developed and maintained a payment gateway using Django Rest Framework, Docker, and PostgreSQL.",
-        "Integrated APIs with multiple payment providers and financial institutions, ensuring system reliability and security.",
-        "Collaborated closely with frontend teams to ensure a smooth, scalable user experience."
+        "Used the in-house automation tool ITAS to create and execute test cases.",
+        "Performed exploratory testing on live websites to uncover defects.",
+        "Contributed to the creation of reusable and effective test cases.",
+        "Collaborated with engineers on QA-related initiatives."
       ],
-      "technologies": ["Django", "DRF", "PostgreSQL", "Docker", "AWS"],
-      "relevance": ["backend", "fullstack"]
-    },
-    {
-      "title": "Python Backend Developer",
-      "company": "Rapidev DMCC",
-      "period": "Apr 2021 - Jul 2022",
-      "location": "Islamabad, Pakistan",
-      "description": [
-        "Developed a defense project using Django REST, Docker, Elasticsearch, PostgreSQL, and Kafka.",
-        "Implemented backend architecture, including APIs, database design, and event-driven messaging.",
-        "Integrated real-time communication via Django Channels and Kafka for asynchronous workflows."
-      ],
-      "technologies": ["Django", "Kafka", "Elasticsearch", "PostgreSQL", "Docker"],
-      "relevance": ["backend", "fullstack", "devops"]
-    },
-    {
-      "title": "Python Backend Developer",
-      "company": "Metis International Limited",
-      "period": "Nov 2020 - May 2021",
-      "location": "Islamabad, Pakistan",
-      "description": [
-        "Developed and maintained web applications using Django REST Framework and MongoDB.",
-        "Built API endpoints for integrating backend systems and automated cronjobs for scheduled tasks.",
-        "Collaborated using Git, Visual Studio, and Docker for streamlined deployment workflows."
-      ],
-      "technologies": ["Django", "MongoDB", "Docker", "Git"],
-      "relevance": ["backend", "fullstack"]
+      "technologies": ["ITAS", "Exploratory Testing"],
+      "relevance": ["qa", "automation"]
     }
   ],
   "projects": [
     {
-      "title": "Painting Website",
-      "description": "Developed a Django-based website for artists to upload, manage, and display artwork collections.",
-      "technologies": ["Django", "PostgreSQL", "Bootstrap"],
-      "link": "https://github.com/oykamal/painting-site",
-      "relevance": ["fullstack", "backend"]
-    },
-    {
-      "title": "2D Mouth Lipsyncing Tool",
-      "description": "Built an innovative web app that generates 2D mouth lipsync animations from audio scripts.",
-      "technologies": ["Python", "Flask", "JavaScript"],
-      "link": "https://github.com/oykamal/lipsync-tool",
-      "relevance": ["backend", "ai"]
+      "title": "Python-based CSV Data Cleanup Tool",
+      "description": "Developed and integrated a Python tool into Django Admin to clean and correct student data across thousands of records.",
+      "technologies": ["Python", "Django"],
+      "relevance": ["qa", "automation", "backend"]
     }
   ],
   "education": [
     {
-      "degree": "Bachelor’s Degree in Computer Science",
-      "institution": "Iqra University",
-      "period": "2015 - 2019",
-      "details": "Graduated with a CGPA of 3.34, focused on software development and database systems."
-    }
-  ],
-  "blogs": [
-    {
-      "title": "Optimizing Django for High Performance",
-      "slug": "optimizing-django-performance",
-      "published": "2024-08-10",
-      "excerpt": "Explore how to improve Django app performance using caching, async tasks, and database tuning.",
-      "tags": ["Django", "Performance", "Backend"],
-      "link": "https://kamaldev.me/blog/optimizing-django-performance"
-    },
-    {
-      "title": "Building Scalable APIs with Flask and Kafka",
-      "slug": "flask-kafka-api",
-      "published": "2024-07-01",
-      "excerpt": "A guide to building event-driven microservices using Flask, Kafka, and Docker.",
-      "tags": ["Flask", "Kafka", "Microservices"],
-      "link": "https://kamaldev.me/blog/flask-kafka-api"
-    },
-    {
-      "title": "From Backend to Full Stack: My Journey",
-      "slug": "backend-to-fullstack",
-      "published": "2024-05-20",
-      "excerpt": "A personal reflection on evolving from a backend engineer to a full-stack developer with React and Django.",
-      "tags": ["Career", "Full Stack", "React", "Django"],
-      "link": "https://kamaldev.me/blog/backend-to-fullstack"
+      "degree": "Bachelors of Science in Computer Science",
+      "institution": "International Islamic University",
+      "period": "2017 - 2021",
+      "details": "Completed coursework in software development, testing, and systems design."
     }
   ]
 }
