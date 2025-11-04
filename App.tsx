@@ -19,7 +19,10 @@ const App: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/data/developer.json');
+                // Use Vite's base URL so requests work when deployed to a subpath (GitHub Pages).
+                // Cast import.meta to any to avoid TS type error when accessing env in this small app.
+                const base = (import.meta as any).env?.BASE_URL ?? '/';
+                const response = await fetch(`${base}data/developer.json`);
                 const data: PortfolioData = await response.json();
                 setFullData(data);
 
