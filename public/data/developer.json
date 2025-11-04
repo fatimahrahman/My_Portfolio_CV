@@ -1,0 +1,81 @@
+{
+  "personal": {
+    "name": "Fatima Rahman",
+    "title": "Software Quality Assurance Engineer",
+    "contact": {
+      "email": "fatimahrahman001@gmail.com",
+      "phone": "+92 344 932 0536",
+      "location": "Islamabad, Pakistan",
+      "linkedin": "https://www.linkedin.com/in/fatimah26/",
+      "github": "https://github.com/fatimahrahman"
+    }
+  },
+  "summary": {
+    "introduction": "QA Engineer with 3 years of experience building quality from the ground up in fast-paced product teams.",
+    "body": [
+      "Known for thinking beyond the checklist, uncovering hidden edge cases, refining requirements with product owners, and embedding quality at every stage of the development cycle.",
+      "Collaborates closely with developers to detect early issues and ensure seamless, high-quality releases.",
+      "Brings a sharp eye for detail and a strong sense of ownership to every launch."
+    ]
+  },
+  "skills": [
+    { "name": "Manual Testing (Web, Android, iOS)", "category": "Testing", "relevance": ["qa", "mobile", "web"] },
+    { "name": "Automation (Cypress, Playwright)", "category": "Automation", "relevance": ["qa", "automation"] },
+    { "name": "API Testing (Postman)", "category": "Testing", "relevance": ["qa", "backend"] },
+    { "name": "Database Testing (PostgreSQL, MongoDB)", "category": "Database", "relevance": ["qa", "backend"] },
+    { "name": "Scripting (Python, TypeScript)", "category": "Languages", "relevance": ["automation", "backend"] },
+    { "name": "CI/CD & DevOps Collaboration", "category": "Processes", "relevance": ["qa", "devops"] },
+    { "name": "Agile & Scrum Methodologies", "category": "Processes", "relevance": ["qa", "team"] },
+    { "name": "Tools: Jira, AIO Test Management, Tuskr, Firebase, Docker, AWS, Retool, PostHog, Google Analytics, Elastic, Odoo, HubSpot", "category": "Tools", "relevance": ["qa", "automation", "data"] }
+  ],
+  "experience": [
+    {
+      "title": "Software Quality Assurance Engineer",
+      "company": "Taleemabad",
+      "period": "Oct 2022 - Present",
+      "location": "Islamabad, Pakistan",
+      "description": [
+        "Performed end-to-end manual testing for web, Android, and iOS apps, covering complex modules such as multi-tenancy, live updates, report cards, lesson plans, and teacher observations.",
+        "Automated key modules like Exam Generator and Class Management using Cypress.",
+        "Conducted API testing, SQL validation, and event tracking using PostHog and Firebase.",
+        "Developed a Python-based CSV cleanup tool integrated with Django Admin to automate data correction.",
+        "Led QA for major releases, including the Balochistan project launch and AWS-to-QCloud migration.",
+        "Collaborated with developers on PR testing, refined SRDs with product managers, and participated in Agile ceremonies.",
+        "Conducted usability testing with teachers and supported large-scale field validations.",
+        "Mentored junior QA engineers and assisted in QA hiring."
+      ],
+      "technologies": ["Cypress", "Postman", "Python", "Django", "PostgreSQL", "Firebase", "AWS", "Docker", "Jira"],
+      "relevance": ["qa", "automation", "backend", "frontend"]
+    },
+    {
+      "title": "Quality Assurance Intern",
+      "company": "Fusion Systems",
+      "period": "Feb 2022 - Jul 2022",
+      "location": "Remote",
+      "description": [
+        "Used the in-house automation tool ITAS to create and execute test cases.",
+        "Performed exploratory testing on live websites to uncover defects.",
+        "Contributed to the creation of reusable and effective test cases.",
+        "Collaborated with engineers on QA-related initiatives."
+      ],
+      "technologies": ["ITAS", "Exploratory Testing"],
+      "relevance": ["qa", "automation"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Python-based CSV Data Cleanup Tool",
+      "description": "Developed and integrated a Python tool into Django Admin to clean and correct student data across thousands of records.",
+      "technologies": ["Python", "Django"],
+      "relevance": ["qa", "automation", "backend"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelors of Science in Computer Science",
+      "institution": "International Islamic University",
+      "period": "2017 - 2021",
+      "details": "Completed coursework in software development, testing, and systems design."
+    }
+  ]
+}
