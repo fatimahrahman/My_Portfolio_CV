@@ -19,16 +19,35 @@ const App: React.FC = () => {
     // Removed AI enhancer per request
 
     useEffect(() => {
-        // Use the imported JSON so data is part of the bundle and works on GitHub Pages
-        const data: PortfolioData = developerData as unknown as PortfolioData;
-        setFullData(data);
-
-        const allRelevanceTags = new Set<string>();
-        data.skills.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
-        data.experience.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
-        data.projects.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
-        const tags = Array.from(allRelevanceTags).filter(t => t.toLowerCase() !== 'all');
-        setFilters(['all', ...tags]);
+        // Try to fetch the CV JSON at runtime from the deployed `public/` path.
+        // This lets you update `public/data/developer.json` and republish without changing code.
+        (async () => {
+            const base = (import.meta as any).env?.BASE_URL ?? '/';
+            try {
+                const res = await fetch(`${base}data/developer.json`);
+                if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+                const fetched = await res.json() as PortfolioData;
+                setFullData(fetched);
+                const allRelevanceTags = new Set<string>();
+                fetched.skills.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+                fetched.experience.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+                fetched.projects.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+                const tags = Array.from(allRelevanceTags).filter(t => t.toLowerCase() !== 'all');
+                setFilters(['all', ...tags]);
+                return;
+            } catch (err) {
+                // Fallback to the compiled-in JSON so the app still works if the runtime fetch fails
+                // (for example, during local dev or if the static file wasn't deployed).
+                const data: PortfolioData = developerData as unknown as PortfolioData;
+                setFullData(data);
+                const allRelevanceTags = new Set<string>();
+                data.skills.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+                data.experience.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+                data.projects.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+                const tags = Array.from(allRelevanceTags).filter(t => t.toLowerCase() !== 'all');
+                setFilters(['all', ...tags]);
+            }
+        })();
     }, []);
 
     const filteredData = useMemo<PortfolioData | null>(() => {

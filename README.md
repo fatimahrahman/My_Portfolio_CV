@@ -19,23 +19,93 @@ Prerequisites: Node.js 18+
    `npm run dev`
 
    Open the URL printed by Vite (usually `http://localhost:5173`).
+# Dynamic Portfolio & Smart CV Generator
 
-3) Build for production (optional)
+This is a lightweight React app that renders a portfolio and generates a PDF CV from a single JSON file.
 
-   `npm run build`
+## Overview
 
-   Preview locally:
+- The app renders a single-page portfolio and provides a PDF download of the CV.
+- Content comes from a JSON file you can edit to customize the CV.
 
-   `npm run preview`
+## How data is loaded (two options)
 
-Notes
-- No API keys are required. The AI “Enhance” button is disabled by default. If you later enable it, set `VITE_GEMINI_API_KEY` in `.env.local`.
+1) Runtime static file (recommended for easy edits)
+- `public/data/developer.json` — this file is copied into `dist/` during build and served as a static asset.
+- Edit this file and re-deploy (see Deploy section) to update the live site without changing application code.
 
-## Make It Yours (edit the JSON)
+2) Bundled fallback
+- `src/data/developer.json` is imported into the app and bundled into the JS. It's used as a fallback when the runtime static file is not available.
+- Editing this file requires rebuilding the app for changes to appear on the live site.
 
-All content lives in `data/developer.json`. Replace the values with your information while keeping the same shape.
+The app currently attempts a runtime fetch of `data/developer.json` and falls back to the bundled JSON when needed.
 
-Minimal example:
+## Run Locally
+
+Prerequisites: Node.js 18+
+
+1) Install dependencies
+
+```bash
+npm ci
+```
+
+2) Start the dev server
+
+```bash
+npm run dev
+```
+
+Open the URL printed by Vite (usually `http://localhost:5173`).
+
+## Build & Preview
+
+```bash
+npm run build
+npm run preview
+```
+
+## Edit your CV JSON (recommended workflow)
+
+- Edit `public/data/developer.json` to change your CV content (personal info, summary, skills, experience, projects, education).
+- Keep `relevance` tags consistent across skills/experience/projects; they power the filter chips. Avoid using `all` as a tag — the app adds “All” automatically.
+
+Quick local edit & publish
+
+```bash
+# 1) edit public/data/developer.json
+git add public/data/developer.json
+git commit -m "Update CV data"
+git push origin main
+
+# 2) publish to GitHub Pages using the included script
+npm ci
+npm run deploy
+```
+
+This deploy script runs a build and publishes `dist/` to the `gh-pages` branch (the repo already contains a `deploy` script in `package.json`).
+
+Edit in the GitHub UI
+
+- You can also edit `public/data/developer.json` directly on GitHub (click the file in the repo, click the pencil icon, edit, and commit). To have the live site update automatically you'll need an Actions workflow that builds & deploys on push — otherwise run `npm run deploy` locally to publish.
+
+## Troubleshooting
+
+- If your live site shows `Loading Portfolio...`:
+  - Open DevTools → Network and check `https://<your-user>.github.io/<repo>/data/developer.json` — it should return HTTP 200 and the JSON body.
+  - If it returns 404, the static file wasn't included in the deployed `dist/` (run `npm run deploy` locally or set up Actions).
+  - If the JSON returns 200 but the page still shows loading, open Console and paste any errors here and I'll help debug.
+
+## Notes about routing & GitHub Pages
+
+- The Vite `base` config is set to the repo path so asset URLs resolve correctly when deployed to `https://<user>.github.io/<repo>/`.
+- If you use client-side browser history routing (React Router), you may see 404s for nested routes on refresh. Two ways to handle that:
+  - Use HashRouter instead of BrowserRouter (hash URLs work under static hosting), or
+  - Add a `404.html` that redirects to `index.html` (I can add this for you).
+
+## Example JSON shape
+
+Below is a complete example you can copy into `public/data/developer.json`:
 
 ```json
 {
@@ -47,8 +117,7 @@ Minimal example:
       "phone": "+1 555 123 4567",
       "location": "Berlin, Germany",
       "linkedin": "https://www.linkedin.com/in/janedoe/",
-      "github": "https://github.com/janedoe",
-      "website": "janedoe.dev"
+      "github": "https://github.com/janedoe"
     }
   },
   "summary": {
@@ -76,17 +145,6 @@ Minimal example:
       ],
       "technologies": ["Python", "Django", "PostgreSQL", "Docker"],
       "relevance": ["backend", "fullstack"]
-    },
-    {
-      "title": "Software Engineer",
-      "company": "Beta Ltd",
-      "period": "Jun 2021 - Nov 2022",
-      "location": "Berlin, Germany",
-      "description": [
-        "Built internal tools and reporting dashboards with Flask and React."
-      ],
-      "technologies": ["Flask", "React", "Redis"],
-      "relevance": ["fullstack"]
     }
   ],
   "projects": [
@@ -109,27 +167,8 @@ Minimal example:
 }
 ```
 
-Tips
-- Keep `relevance` tags consistent across skills/experience/projects; they power the filter chips. Avoid using `all` as a tag — the app adds “All” automatically.
-- Use full URLs for `linkedin` and `github` (including `https://`).
-- The download filename includes the total years of experience, calculated from the earliest job to today. Use periods like `Dec 2022 - Present` or `Jun 2021 - Nov 2022` for best results.
+If you'd like, I can also:
+- Add a GitHub Actions workflow to auto-build & deploy `dist` to `gh-pages` on push.
+- Add a `404.html` redirect to `index.html` for client-side routing support.
 
-## Using Filters and Download
-
-- Click a filter (e.g. Backend, Fullstack). The page updates to show only relevant items.
-- Click “Download CV” to generate a PDF of the filtered view with compact spacing and print‑friendly typography.
-
-## Optional: Re‑enable AI Summary Enhancer
-
-The codebase contains an optional Gemini integration (currently not shown in the UI). To re‑enable it, set an env var and surface the control:
-
-1) Set `.env.local`:
-
-   `VITE_GEMINI_API_KEY=your_api_key`
-
-2) Wire the enhancer UI back in `App.tsx` (the `ThinkingMode` component). The rest is already configured.
-
-—
-
-Questions or ideas to improve the template? Open an issue or PR!
-# Dynamic_Portfolio_CV_Generator
+Open a message telling me which of those you'd like and I will add them next.
