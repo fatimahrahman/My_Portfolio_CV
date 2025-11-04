@@ -1,0 +1,5 @@
+{
+  "name": "Dynamic Portfolio & Smart CV Generator",
+  "description": "A React application that dynamically generates a personal portfolio and a tailored CV from a single JSON data source. Features an AI-powered summary enhancer to customize content for specific job roles.",
+  "requestFramePermissions": []
+}
