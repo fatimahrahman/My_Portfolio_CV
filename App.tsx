@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { PortfolioData } from './types';
+// Import the JSON at build time so it's bundled into the app and no runtime fetch is required.
+import developerData from './data/developer.json';
 import Header from './components/Header';
 import Summary from './components/Summary';
 import Skills from './components/Skills';
@@ -17,27 +19,16 @@ const App: React.FC = () => {
     // Removed AI enhancer per request
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Use Vite's base URL so requests work when deployed to a subpath (GitHub Pages).
-                // Cast import.meta to any to avoid TS type error when accessing env in this small app.
-                const base = (import.meta as any).env?.BASE_URL ?? '/';
-                const response = await fetch(`${base}data/developer.json`);
-                const data: PortfolioData = await response.json();
-                setFullData(data);
+        // Use the imported JSON so data is part of the bundle and works on GitHub Pages
+        const data: PortfolioData = developerData as unknown as PortfolioData;
+        setFullData(data);
 
-                const allRelevanceTags = new Set<string>();
-                data.skills.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
-                data.experience.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
-                data.projects.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
-                // Ensure single 'all' option only
-                const tags = Array.from(allRelevanceTags).filter(t => t.toLowerCase() !== 'all');
-                setFilters(['all', ...tags]);
-            } catch (error) {
-                console.error("Failed to load portfolio data:", error);
-            }
-        };
-        fetchData();
+        const allRelevanceTags = new Set<string>();
+        data.skills.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+        data.experience.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+        data.projects.forEach(item => item.relevance.forEach(tag => allRelevanceTags.add(tag)));
+        const tags = Array.from(allRelevanceTags).filter(t => t.toLowerCase() !== 'all');
+        setFilters(['all', ...tags]);
     }, []);
 
     const filteredData = useMemo<PortfolioData | null>(() => {
